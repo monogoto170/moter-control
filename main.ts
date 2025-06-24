@@ -1,15 +1,22 @@
-enum MotorSide {
-    //% block="左"
-    Left = AnalogPin.P13,
-    //% block="右"
-    Right = AnalogPin.P15
-}
+//% weight=100 color=#0fbc11 icon="\uf013" block="モーター制御"
+namespace MotorControl {
 
-/**
- * タイヤ制御
- */
-//% block="|%side|のタイヤを動かす 速さ %speed"
-//% speed.min=0 speed.max=1023
-export function moveMotor(side: MotorSide, speed: number): void {
-    pins.analogWritePin(<AnalogPin>side, speed);
+    export enum Tire {
+        //% block="左のタイヤ (P13)"
+        Left = 13,
+        //% block="右のタイヤ (P15)"
+        Right = 15
+    }
+
+    /**
+     * 指定したタイヤを指定した速さで回転させる
+     * @param tire 左または右のタイヤ
+     * @param speed 回転速度 (0~1023)
+     */
+    //% block="%tire のタイヤを回す 速さ %speed"
+    //% speed.min=0 speed.max=1023
+    //% inlineInputMode=inline
+    export function turn(tire: Tire, speed: number): void {
+        pins.analogWritePin(<AnalogPin>tire, speed)
+    }
 }
