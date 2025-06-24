@@ -1,0 +1,14 @@
+{
+  "name": "motor-control",
+  "description": "ラジコンカー用のタイヤ制御ブロック",
+  "dependencies": {
+    "device": "*"
+  },
+  "files": [
+    "main.ts"
+  ],
+  "targetVersions": {
+    "microbit": "0.0.0",
+    "pxt": "0.0.0"
+  }
+}
